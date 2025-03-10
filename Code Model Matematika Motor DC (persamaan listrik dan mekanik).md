@@ -2,7 +2,6 @@
 //NIM : 235150301111036
 
 import sympy as sp
-
 # Define symbols
 L, R, V, K, theta, I, doti, J, b, s, t, omega, omegadot = sp.symbols('L, R, V, K, \\theta, I, \\dot{i}, J, b, s, t, omega,\\dot{\\omega}')
 
