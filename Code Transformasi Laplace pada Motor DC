@@ -2,7 +2,6 @@
 // NIM : 235150301111036
 
 import sympy as sp
-
 # Define symbols
 s, R, V, K, J, B, omega = sp.symbols('s R V K J B omega')
 
