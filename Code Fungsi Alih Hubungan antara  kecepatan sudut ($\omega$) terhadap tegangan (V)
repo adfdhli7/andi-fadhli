@@ -1,3 +1,34 @@
 // Nama : Andi Muhammad Fadhli
 // NIM : 235150301111036
 
+import sympy as sp
+
+# Definisi simbol
+s = sp.symbols('s')  # Variabel Laplace
+V = sp.symbols('V')  # Tegangan input
+R = sp.symbols('R')  # Resistansi
+L = sp.symbols('L')  # Induktansi
+J = sp.symbols('J')  # Momen inersia
+b = sp.symbols('b')  # Koefisien gesekan viscous
+Kt = sp.symbols('Kt')  # Konstanta torsi
+Ke = sp.symbols('Ke')  # Konstanta GGL
+I = sp.Function('I')(s)  # Arus dalam domain Laplace
+Omega = sp.Function('Omega')(s)  # Kecepatan sudut dalam domain Laplace
+
+# Persamaan listrik dalam domain Laplace: V(s) = (R + L*s)*I(s) + Ke*Omega(s)
+eq_electric_laplace = sp.Eq(V, (R + L*s)*I + Ke*Omega)
+
+# Persamaan mekanik dalam domain Laplace: Kt*I(s) = (J*s + b)*Omega(s)
+eq_mechanical_laplace = sp.Eq(Kt*I, (J*s + b)*Omega)
+
+# Selesaikan untuk I(s) dari persamaan mekanik Laplace
+I_s = sp.solve(eq_mechanical_laplace, I)[0]
+
+# Substitusi I(s) ke persamaan listrik Laplace
+eq_transfer_function = sp.Eq(V, (R + L*s)*I_s + Ke*Omega)
+
+# Selesaikan untuk Omega(s)/V(s)
+transfer_function = sp.solve(eq_transfer_function, Omega)[0] / V
+
+print("Fungsi Alih Omega(s)/V(s):")
+sp.pprint(transfer_function)
