@@ -3,18 +3,25 @@
 
 import sympy as sp
 
-# Define symbols
-L, R, V, K, theta, I, doti, J, b, s, t, omega, omegadot = sp.symbols('L, R, V, K, \\theta, I, \\dot{i}, J, b, s, t, omega,\\dot{\\omega}')
+# define simbol
+t = sp.symbols('t')  # Waktu
+V = sp.symbols('V')  # Tegangan input
+R = sp.symbols('R')  # Resistansi
+L = sp.symbols('L')  # Induktansi
+J = sp.symbols('J')  # Momen inersia
+b = sp.symbols('b')  # Koefisien gesekan viscous
+Kt = sp.symbols('Kt')  # Konstanta torsi
+Ke = sp.symbols('Ke')  # Konstanta GGL
+i = sp.Function('i')(t)  # Arus
+omega = sp.Function('omega')(t)  # Kecepatan sudut
 
-dIdt = (sp.Function('I')(t).diff(t))
-dthetadt = (sp.Function('\\theta')(t).diff(t))
-#display(dIdt)
+# Persamaan listrik: V = R*i + L*di/dt + Ke*omega
+eq_electric = sp.Eq(V, R*i + L*sp.diff(i, t) + Ke*omega)
 
-#eq1 = L *dIdt + R * I - V + K * dthetadt  # Electrical equation
-#eq2 = J * dthetadt**2 + b * dthetadt + K * I  # Mechanical equation
+# Persamaan mekanik: Kt*i = J*d(omega)/dt + b*omega
+eq_mechanical = sp.Eq(Kt*i, J*sp.diff(omega, t) + b*omega)
 
-eq1 = L *doti + R * I - V + K * omega  # Electrical equation
-eq2 = J * omegadot + b * omega + K * I  # Mechanical equation
-
-display(eq1)
-display(eq2)
+print("Persamaan Listrik:")
+sp.pprint(eq_electric)
+print("\nPersamaan Mekanik:")
+sp.pprint(eq_mechanical)
