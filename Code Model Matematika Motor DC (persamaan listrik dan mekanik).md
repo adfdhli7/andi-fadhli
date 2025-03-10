@@ -3,7 +3,7 @@
 
 import sympy as sp
 
-# define simbol
+# define symbol
 t = sp.symbols('t')  # Waktu
 V = sp.symbols('V')  # Tegangan input
 R = sp.symbols('R')  # Resistansi
