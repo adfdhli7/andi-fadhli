@@ -1,3 +1,15 @@
 // Nama : Andi Muhammad Fadhli
 // NIM : 235150301111036
 
+import sympy as sp
+
+# Define symbols
+s, R, V, K, J, B, omega = sp.symbols('s R V K J B omega')
+
+# Define the transfer function based on the given equation
+H_eq = sp.Eq(sp.Symbol('H(s)'), omega / V)
+H_eq2 = ((K/R) / (J * s + (K**2 / R) + B))
+
+# Display transfer function
+sp.pprint(H_eq)
+display(H_eq2)
