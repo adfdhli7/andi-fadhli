@@ -3,7 +3,13 @@
 
 import sympy as sp
 # Define symbols
-s, R, V, K, J, B, omega = sp.symbols('s R V K J B omega')
+s # Variable Laplace 
+R # Resistansi
+V # Tegangan input
+K # Konstanta 
+J # momen inersia 
+B # Koefisien gesekan viscous
+omega = sp.symbols('s R V K J B omega')
 
 # Define the transfer function based on the given equation
 H_eq = sp.Eq(sp.Symbol('H(s)'), omega / V)
