@@ -1,4 +1,6 @@
-//model matematika motor dc (persamaan listrik dan mekanik)
+//Code Model Matematika Motor DC (persamaan listrik dan mekanik)
+//Nama : Andi Muhammad Fadhli
+//NIM : 235150301111036
 
 import sympy as sp
 
