@@ -1,4 +1,3 @@
-//Code Model Matematika Motor DC (persamaan listrik dan mekanik)
 //Nama : Andi Muhammad Fadhli
 //NIM : 235150301111036
 
